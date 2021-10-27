@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import { AppBar, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React from 'react'
+import { withRouter } from 'react-router-dom';
 
 const drawerWidth = 240;
 
-function Sidebar(props) {
-    const { window, history } = props;
+const Sidebar = props => {
+    const {window, history} = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
@@ -107,6 +108,7 @@ function Sidebar(props) {
                             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                         }}
                         open
+                        className = {{width: "500px"}}
                     >
                         {drawer}
                     </Drawer>
@@ -120,4 +122,4 @@ Sidebar.propTypes = {
     window: PropTypes.func,
 };
   
-export default Sidebar
+export default withRouter(Sidebar)
