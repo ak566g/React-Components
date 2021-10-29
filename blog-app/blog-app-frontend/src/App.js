@@ -11,7 +11,18 @@ import Write from "./pages/write/Write";
 function App() {
   const currentUser = true
   return (
-    <BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <Topbar/>
+        <Homepage/>
+      </BrowserRouter>
+    </div>
+  );
+}
+
+export default App;
+
+{/* <BrowserRouter>
       <Topbar>
         <Switch>
           <Route exact path = "/">
@@ -40,8 +51,4 @@ function App() {
           
         </Switch>
       </Topbar>
-    </BrowserRouter>
-  );
-}
-
-export default App;
+    </BrowserRouter> */}
