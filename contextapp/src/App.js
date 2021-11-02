@@ -1,12 +1,14 @@
 import BookList from "./components/BookList";
 import Navbar from "./components/Navbar";
+import ThemeContextProvider from "./contexts/ThemeContext";
 
 function App() {
   return (
     <div>
-      <h3>Context API Demo</h3>
-      <Navbar/>
-      <BookList/>
+      <ThemeContextProvider>
+        <Navbar/>
+        <BookList/>
+      </ThemeContextProvider>
     </div>
   );
 }
