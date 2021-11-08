@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Pagination } from "./components/Pagination";
+import { Posts } from "./components/Posts";
 
 
 
@@ -18,9 +20,20 @@ function App() {
     }
     fetchPosts()
   }, [])
+  console.log(posts)
+
+  // Get current Posts
+  const indexOfLastPost = currentPage * postPerPage
+  const indexOfFirstPost = indexOfLastPost - postPerPage
+  const currentPosts = posts.slice(indexOfFirstPost,indexOfLastPost)
+
+  // change page
+  const paginate = pageNumber => setCurrentPage(pageNumber)
+
   return (
     <div>
-      Hello World
+      <Posts posts={currentPosts} loading={loading}/>
+      <Pagination postsPerPage={postPerPage} totalPosts = {posts.length} paginate ={paginate}/>
     </div>
   );
 }
